@@ -6,9 +6,9 @@ const fs = require('fs');
 const Bucket = process.env.AWS_BUCKET_NAME;
 
 const s3 = new S3({
-  region: process.env.AWS_BUCKET_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+  region: process.env.AWS_REGION,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
 // Upload file to S3 bucket
