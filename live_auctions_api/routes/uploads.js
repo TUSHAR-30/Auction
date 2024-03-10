@@ -8,7 +8,9 @@ const multer = require('multer');
 const isAuth = require('../middlewares/isAuth');
 
 const { uploadFile, getFileStream } = require('../utils/s3');
-const upload = multer({ dest: 'uploads' });
+// const upload = multer({ dest: 'uploads' });
+const upload=require("../utils/multer");
+
 
 
 
@@ -20,7 +22,7 @@ router.post('/image', isAuth, upload.single('image'), async (req, res) => {
   try {
     console.log(file);
     const result = await uploadFile(file);
-    await unlinkFile(file.path);
+    // await unlinkFile(file.path);
     res.status(200).json({ imagePath: `/upload/image/${result.Key}` });
   } catch (error) {
     console.log(error);
